@@ -42,7 +42,8 @@ class _QuoteScreenState extends State<QuoteScreen> {
           onpress: () => GetRandomQuote(),
         );
       } else if (state is RandomQuoteLoaded) {
-        return Column(
+        return Center(
+            child: Column(
           children: [
             QuoteContent(
               quote: state.quote,
@@ -61,7 +62,7 @@ class _QuoteScreenState extends State<QuoteScreen> {
                   ),
                 ))
           ],
-        );
+        ));
       } else {
         return Center(
           child: SpinKitFadingCircle(

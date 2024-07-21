@@ -14,13 +14,13 @@ class RandomQuoteCubit extends Cubit<RandomQuoteState> {
 
   Future<void> getRandomQuote() async {
     emit(RandomQuoteIsLoading());
-    Either<Failures, Quote> response = await getRandomQuoteUseCase(NoParams());
+    Either<Failure, Quote> response = await getRandomQuoteUseCase(NoParams());
     emit(response.fold(
         (failure) => RandomQuoteError(msg: _mapFailureToMsg(failure)),
         (quote) => RandomQuoteLoaded(quote: quote)));
   }
 
-  String _mapFailureToMsg(Failures failure) {
+  String _mapFailureToMsg(Failure failure) {
     switch (failure.runtimeType) {
       case ServerFailure:
         return AppStrings.serverFailure;

@@ -9,6 +9,6 @@ class GetSavedLangUseCase implements UseCase<String, NoParams> {
   GetSavedLangUseCase({required this.langRepo});
 
   @override
-  Future<Either<Failures, String>> call(NoParams params) async =>
+  Future<Either<Failure, String>> call(NoParams params) async =>
       await langRepo.getSavedLang();
 }

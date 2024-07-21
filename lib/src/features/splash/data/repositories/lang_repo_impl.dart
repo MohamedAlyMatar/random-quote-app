@@ -9,7 +9,7 @@ class LangRepoImpl implements LangRepo {
   LangRepoImpl({required this.langLocalDataSrc});
 
   @override
-  Future<Either<Failures, bool>> changeLang({required String langCode}) async {
+  Future<Either<Failure, bool>> changeLang({required String langCode}) async {
     try {
       final langIsChanged =
           await langLocalDataSrc.changeLang(langCode: langCode);
@@ -20,7 +20,7 @@ class LangRepoImpl implements LangRepo {
   }
 
   @override
-  Future<Either<Failures, String>> getSavedLang() async {
+  Future<Either<Failure, String>> getSavedLang() async {
     try {
       final langCode = await langLocalDataSrc.getSavedLang();
       return Right(langCode);

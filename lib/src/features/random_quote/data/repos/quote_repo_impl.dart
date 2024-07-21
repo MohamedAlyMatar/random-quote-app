@@ -21,7 +21,7 @@ class QuoteRepoImpl implements QuoteRepo {
   });
 
   @override
-  Future<Either<Failures, Quote>> getRandomQuote() async {
+  Future<Either<Failure, Quote>> getRandomQuote() async {
     if (await networkInfo.isConnected) {
       try {
         final remoteQuote = await randomQuoteRemoteDataSrc.getRandomQuote();

@@ -3,5 +3,5 @@ import 'package:quotes/src/core/errors/failures.dart';
 import '../entities/quote.dart';
 
 abstract class QuoteRepo {
-  Future<Either<Failures, Quote>> getRandomQuote();
+  Future<Either<Failure, Quote>> getRandomQuote();
 }
